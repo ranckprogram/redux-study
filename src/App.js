@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux'
 import { getList } from './actions'
 
 class App extends Component {
   componentDidMount() {
-    this.props.getList()
-    console.dir(this)
-
+    this.props.getList() // 调用方法请求数据
   }
+
   render() {
-    console.dir(this.props)
-    let {list} = this.props
+    let {list} = this.props // 使用数据
     list = list || []
     const listItems = list.map(item => (
       <div key={item}>{item}</div>  
@@ -25,9 +22,8 @@ class App extends Component {
   }
 }
 const mapStateToProps = state => {
-  console.dir(state)
   return {
-    list: state.getList.list,
+    list: state.list
   }
 }
 

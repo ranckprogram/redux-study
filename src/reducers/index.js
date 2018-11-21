@@ -4,22 +4,17 @@ import {
 } from '../actions'
 
 
-const getList = (state = [], action) => {
+const list = (state = [], action) => {
     switch (action.type) {
         case GET_LIST:
-            console.dir(state)
-            console.log(action, "action")
-            return {
-                ...state,
-                list: action.data
-              }
+            return action.data
         default:
             return state
     }
 }
 
 const rootReducer = combineReducers({
-    getList
+    list
 })
 
 export default rootReducer
